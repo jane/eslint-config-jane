@@ -5,17 +5,10 @@ const hasA11y = isInstalled('eslint-plugin-jsx-a11y')
 const hasJest = isInstalled('eslint-plugin-jest')
 
 const reactRules = {
-  'react/jsx-indent': [ 'warn', 2 ],
-  'react/jsx-indent-props': [ 'warn', 2 ],
   'react/jsx-no-bind': 'warn',
   'react/no-did-update-set-state': 'warn',
   'react/jsx-no-duplicate-props': [ 'warn', { ignoreCase: true } ],
   'react/jsx-no-undef': 'warn',
-  'react/jsx-tag-spacing': [ 'warn', {
-    afterOpening: 'never',
-    beforeSelfClosing: 'always',
-    closingSlash: 'never'
-  }],
   'react/jsx-pascal-case': [ 'warn', {
     allowAllCaps: true,
     ignore: []
@@ -26,8 +19,6 @@ const reactRules = {
   'react/no-direct-mutation-state': 'warn',
   'react/no-is-mounted': 'warn',
   'react/jsx-boolean-value': 'warn',
-  'react/jsx-curly-spacing': [ 'warn', 'never' ],
-  'react/jsx-equals-spacing': [ 'warn', 'never' ],
   'react/no-unknown-property': 'warn',
   'react/prop-types': 'warn',
   'react/react-in-jsx-scope': 'warn',
@@ -72,36 +63,15 @@ const jestRules = {
 
 const baseRules = {
   'array-callback-return': 'warn',
-  'arrow-parens': [ 'warn', 'always' ],
-  'arrow-spacing': [ 'warn', { before: true, after: true } ],
   'arrow-body-style': [ 'warn', 'as-needed' ],
-  'block-spacing': [ 'warn', 'always' ],
-  'brace-style': [ 'warn', '1tbs', { allowSingleLine: true } ],
   camelcase: [ 'warn', { properties: 'never' } ],
   'comma-dangle': [ 'error', 'never' ],
-  'comma-spacing': [ 'warn', { before: false, after: true } ],
-  'comma-style': [ 'warn', 'last' ],
   'constructor-super': 'warn',
-  curly: [ 'warn', 'multi-line' ],
   'default-case': [ 'warn', { commentPattern: '^no default$' } ],
   'dot-location': [ 'warn', 'property' ],
   'eol-last': 'error',
   eqeqeq: [ 'warn', 'allow-null' ],
-  'func-call-spacing': [ 'warn', 'never' ],
-  'generator-star-spacing': [ 'warn', { before: true, after: true } ],
   'guard-for-in': 'warn',
-  indent: [ 'error', 2, { SwitchCase: 1 } ],
-  'jsx-quotes': [ 'warn', 'prefer-double' ],
-  'key-spacing': [ 'warn', {
-    beforeColon: false,
-    afterColon: true
-  }],
-  'keyword-spacing': [ 'warn', { before: true, after: true } ],
-  'max-len': [ 'warn', 120, {
-    ignoreUrls: true,
-    ignoreRegExpLiterals: true,
-    ignoreStrings: true
-  }],
   'new-cap': [ 'error', { newIsCap: true, capIsNew: false } ],
   'new-parens': 'warn',
   'no-array-constructor': 'warn',
@@ -146,10 +116,7 @@ const baseRules = {
     ],
     allowSamePrecedence: false
   }],
-  'no-mixed-spaces-and-tabs': 'error',
-  'no-multi-spaces': [ 0 ],
   'no-multi-str': 'warn',
-  'no-multiple-empty-lines': [ 'warn', { max: 1 } ],
   'no-native-reassign': 'warn',
   'no-negated-in-lhs': 'warn',
   'no-new-func': 'warn',
@@ -172,11 +139,9 @@ const baseRules = {
   'no-sequences': 'warn',
   'no-shadow-restricted-names': 'warn',
   'no-sparse-arrays': 'warn',
-  'no-tabs': 'error',
   'no-template-curly-in-string': 'warn',
   'no-this-before-super': 'warn',
   'no-throw-literal': 'warn',
-  'no-trailing-spaces': 'warn',
   'no-undef': 'error',
   'no-undef-init': 'error',
   'no-unexpected-multiline': 'warn',
@@ -207,47 +172,18 @@ const baseRules = {
     ignoreImport: false,
     ignoreExport: false
   }],
-  'no-var': 'warn',
+  'no-var': 'error',
   'no-whitespace-before-property': 'warn',
   'no-with': 'error',
-  'object-curly-spacing': [ 'warn', 'always' ],
-  'object-property-newline': [ 'warn', { allowMultiplePropertiesPerLine: true } ],
-  'one-var': [ 0 ],
   'operator-assignment': [ 'warn', 'always' ],
-  'operator-linebreak': [ 'warn', 'after', {
-    overrides: {
-      '?': 'before',
-      ':': 'before'
-    }
-  }],
-  'padded-blocks': [ 'warn', 'never' ],
-  quotes: [ 'error', 'single', { avoidEscape: true } ],
   'quote-props': [ 'warn', 'as-needed' ],
   radix: 'warn',
   'require-yield': 'warn',
-  'rest-spread-spacing': [ 'warn', 'never' ],
-  semi: [ 'warn', 'never' ],
-  'semi-spacing': [ 'warn', { before: false, after: true } ],
-  'space-before-blocks': [ 'warn', 'always' ],
-  'space-before-function-paren': [ 'warn', 'always' ],
-  'space-in-parens': [ 'warn', 'never' ],
-  'space-infix-ops': 'warn',
-  'space-unary-ops': [ 'warn', { words: true, nonwords: false } ],
-  'spaced-comment': [ 'warn', 'always', {
-    line: { markers: [ '*package', '!', ',' ] },
-    block: {
-      balanced: true,
-      markers: [ '*package', '!', ',' ],
-      exceptions: [ '*' ]
-    }
-  }],
   strict: [ 'warn', 'never' ],
-  'template-curly-spacing': [ 'warn', 'never' ],
   'unicode-bom': [ 'error', 'never' ],
   'use-isnan': 'warn',
   'valid-typeof': 'warn',
   'wrap-iife': [ 'warn', 'any' ],
-  'yield-star-spacing': [ 'warn', 'both' ],
   yoda: [ 'warn', 'never' ],
   'unicorn/filename-case': [ 'error', {
     case: 'kebabCase'
