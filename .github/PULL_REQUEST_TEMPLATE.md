@@ -13,7 +13,3 @@
 ## Further Information (screenshots, etc)
 
 #### Relevant Links (bug reports, etc)
-
-## Checklist
-
-* [ ] Added tests / did not decrease code coverage
