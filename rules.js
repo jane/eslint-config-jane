@@ -5,6 +5,7 @@ const hasReact = isInstalled('eslint-plugin-react')
 const hasA11y = isInstalled('eslint-plugin-jsx-a11y')
 const hasJest = isInstalled('eslint-plugin-jest')
 const hasPrettier = isInstalled('eslint-plugin-prettier')
+const hasFlow = isInstalled('flow-bin')
 
 const reactStyleRules = {
   'react/jsx-indent': ['warn', 2],
@@ -161,6 +162,33 @@ const prettierRules = {
   'prettier/prettier': ['warn', prettierFormat],
 }
 
+const flowRules = {
+  'flowtype-errors/show-errors': [2],
+  'flowtype/generic-spacing': [0],
+  'flowtype/space-after-type-colon': [0],
+  'flowtype/no-weak-types': [2],
+  'flowtype/no-types-missing-file-annotation': [2],
+  'flowtype/require-parameter-type': [0],
+  'flowtype/require-return-type': [
+    2,
+    'always',
+    {
+      annotateUndefined: 'always',
+      excludeArrowFunctions: 'expressionsOnly',
+    },
+  ],
+  'flowtype/require-variable-type': [
+    2,
+    {
+      excludeVariableTypes: {
+        const: true,
+        let: false,
+        var: false,
+      },
+    },
+  ],
+}
+
 const baseRules = {
   'array-callback-return': 'warn',
   'arrow-body-style': ['warn', 'as-needed'],
@@ -186,7 +214,7 @@ const baseRules = {
   'no-array-constructor': 'warn',
   'no-caller': 'warn',
   'no-class-assign': 'warn',
-  'no-cond-assign': [ 'warn', 'always' ],
+  'no-cond-assign': ['warn', 'always'],
   'no-console': ['warn'],
   'no-const-assign': 'warn',
   'no-constant-condition': ['warn', { checkLoops: false }],
@@ -324,24 +352,30 @@ const baseRules = {
 const rules = Object.assign(
   ...keep([
     baseRules,
+    hasA11y && a11yRules,
+    hasFlow && flowRules,
+    hasJest && jestRules,
     !hasPrettier && styleRules,
     hasPrettier && prettierRules,
     hasReact && reactRules,
-    hasA11y && a11yRules,
-    hasJest && jestRules,
   ])
 )
 
 const config = {
   parser: 'babel-eslint',
-  extends: 'plugin:import/warnings',
+  extends: keep([
+    'plugin:import/warnings',
+    hasFlow && 'plugin:flowtype/recommended',
+  ]),
   plugins: keep([
-    hasPrettier && 'prettier',
-    hasA11y && 'jsx-a11y',
     'babel',
-    hasReact && 'react',
-    hasJest && 'jest',
     'unicorn',
+    hasA11y && 'jsx-a11y',
+    hasFlow && 'flowtype',
+    hasFlow && 'flowtype-errors',
+    hasJest && 'jest',
+    hasPrettier && 'prettier',
+    hasReact && 'react',
   ]),
   env: {
     browser: true,
