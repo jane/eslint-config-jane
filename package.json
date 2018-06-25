@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-jane",
   "description": "Jane's Eslint config.",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "author": "Zac Anger <zac@zacanger.com> (http://zacanger.com)",
   "license": "MIT",
   "main": "index.js",
