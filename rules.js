@@ -327,6 +327,7 @@ const baseRules = {
   'no-whitespace-before-property': 'warn',
   'no-with': 'error',
   'operator-assignment': ['warn', 'always'],
+  'prefer-const': ['warn'],
   'quote-props': ['warn', 'as-needed', { numbers: true }],
   radix: 'warn',
   'require-yield': 'warn',
