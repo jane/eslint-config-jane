@@ -3,6 +3,10 @@
   "description": "Jane's Eslint config.",
   "version": "2.4.2",
   "author": "Zac Anger <zac@zacanger.com> (http://zacanger.com)",
+  "contributors": [
+    "Jeremy Lund",
+    "Tom Pridham (http://tompridham.me)"
+  ],
   "license": "MIT",
   "main": "index.js",
   "files": [
@@ -53,6 +57,12 @@
   "engines": {
     "node": ">=6.0.0"
   },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "peerDependencies": {
     "babel-eslint": "^8.0.0",
     "eslint": "^4.3.0",
@@ -67,11 +77,5 @@
     "eslint-plugin-react": "^7.2.0",
     "eslint-plugin-unicorn": "^4.0.0",
     "flow-bin": "0.75.0"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
-    ]
   }
 }
