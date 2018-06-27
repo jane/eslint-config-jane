@@ -9,6 +9,8 @@ const hasPrettier = isInstalled('eslint-plugin-prettier')
 const hasFlow = isInstalled('flow-bin')
 
 const reactStyleRules = {
+  'react/jsx-curly-spacing': ['warn', 'never'],
+  'react/jsx-equals-spacing': ['warn', 'never'],
   'react/jsx-indent': ['warn', 2],
   'react/jsx-indent-props': ['warn', 2],
   'react/jsx-tag-spacing': [
@@ -19,30 +21,22 @@ const reactStyleRules = {
       closingSlash: 'never',
     },
   ],
-  'react/jsx-curly-spacing': ['warn', 'never'],
-  'react/jsx-equals-spacing': ['warn', 'never'],
 }
 
 const reactRules = Object.assign(
   {
+    'react/jsx-boolean-value': 'warn',
     'react/jsx-no-bind': 0,
-    'react/no-did-update-set-state': 'warn',
     'react/jsx-no-duplicate-props': ['warn', { ignoreCase: true }],
     'react/jsx-no-undef': 'warn',
-    'react/jsx-pascal-case': [
-      'warn',
-      {
-        allowAllCaps: true,
-        ignore: [],
-      },
-    ],
+    'react/jsx-pascal-case': ['warn', { allowAllCaps: true, ignore: [] }],
     'react/jsx-uses-react': 'warn',
     'react/jsx-uses-vars': 'warn',
-    'react/no-deprecated': 'warn',
-    'react/no-direct-mutation-state': 'error',
     'react/no-access-state-in-setstate': 'warn',
+    'react/no-deprecated': 'warn',
+    'react/no-did-update-set-state': 'warn',
+    'react/no-direct-mutation-state': 'error',
     'react/no-is-mounted': 'warn',
-    'react/jsx-boolean-value': 'warn',
     'react/no-unknown-property': 'warn',
     'react/prop-types': 'warn',
     'react/react-in-jsx-scope': 'warn',
@@ -67,13 +61,13 @@ const a11yRules = {
   'jsx-a11y/html-has-lang': 'warn',
   'jsx-a11y/iframe-has-title': 'warn',
   'jsx-a11y/img-redundant-alt': 'warn',
+  'jsx-a11y/interactive-supports-focus': 'warn',
   'jsx-a11y/label-has-for': 'warn',
   'jsx-a11y/mouse-events-have-key-events': 'warn',
   'jsx-a11y/no-access-key': 'warn',
   'jsx-a11y/no-distracting-elements': 'warn',
   'jsx-a11y/no-onchange': 'warn',
   'jsx-a11y/no-redundant-roles': 'warn',
-  'jsx-a11y/interactive-supports-focus': 'warn',
   'jsx-a11y/role-has-required-aria-props': 'warn',
   'jsx-a11y/role-supports-aria-props': 'warn',
   'jsx-a11y/scope': 'warn',
@@ -97,46 +91,28 @@ const styleRules = {
   'dot-location': ['warn', 'property'],
   'func-call-spacing': ['warn', 'never'],
   'generator-star-spacing': ['warn', { before: true, after: true }],
-  indent: ['error', 2, { SwitchCase: 1 }],
   'jsx-quotes': ['warn', 'prefer-double'],
-  'key-spacing': [
-    'warn',
-    {
-      beforeColon: false,
-      afterColon: true,
-    },
-  ],
+  'key-spacing': ['warn', { beforeColon: false, afterColon: true }],
   'keyword-spacing': ['warn', { before: true, after: true }],
   'max-len': [
     'warn',
     120,
-    {
-      ignoreUrls: true,
-      ignoreRegExpLiterals: true,
-      ignoreStrings: true,
-    },
+    { ignoreUrls: true, ignoreRegExpLiterals: true, ignoreStrings: true },
   ],
   'no-mixed-spaces-and-tabs': 'error',
-  'no-tabs': 'error',
   'no-multi-spaces': [0],
   'no-multiple-empty-lines': ['warn', { max: 1 }],
+  'no-tabs': 'error',
   'object-curly-spacing': ['warn', 'always'],
   'object-property-newline': ['warn', { allowMultiplePropertiesPerLine: true }],
   'one-var': [0],
   'operator-linebreak': [
     'warn',
     'after',
-    {
-      overrides: {
-        '?': 'before',
-        ':': 'before',
-      },
-    },
+    { overrides: { '?': 'before', ':': 'before' } },
   ],
   'padded-blocks': ['warn', 'never'],
-  quotes: ['error', 'single', { avoidEscape: true }],
   'rest-spread-spacing': ['warn', 'never'],
-  semi: ['warn', 'never'],
   'semi-spacing': ['warn', { before: false, after: true }],
   'space-before-blocks': ['warn', 'always'],
   'space-before-function-paren': ['warn', 'always'],
@@ -157,6 +133,9 @@ const styleRules = {
   ],
   'template-curly-spacing': ['warn', 'never'],
   'yield-star-spacing': ['warn', 'both'],
+  indent: ['error', 2, { SwitchCase: 1 }],
+  quotes: ['error', 'single', { avoidEscape: true }],
+  semi: ['warn', 'never'],
 }
 
 const prettierRules = {
@@ -166,35 +145,24 @@ const prettierRules = {
 const flowRules = {
   'flowtype-errors/show-errors': [2],
   'flowtype/generic-spacing': [0],
-  'flowtype/space-after-type-colon': [0],
-  'flowtype/no-weak-types': [2],
   'flowtype/no-types-missing-file-annotation': [2],
+  'flowtype/no-weak-types': [2],
   'flowtype/require-parameter-type': [0],
   'flowtype/require-return-type': [
     2,
     'always',
-    {
-      annotateUndefined: 'always',
-      excludeArrowFunctions: 'expressionsOnly',
-    },
+    { annotateUndefined: 'always', excludeArrowFunctions: 'expressionsOnly' },
   ],
   'flowtype/require-variable-type': [
     2,
-    {
-      excludeVariableTypes: {
-        const: true,
-        let: false,
-        var: false,
-      },
-    },
+    { excludeVariableTypes: { const: true, let: false, var: false } },
   ],
+  'flowtype/space-after-type-colon': [0],
 }
 
 const baseRules = {
   'array-callback-return': 'warn',
   'arrow-body-style': ['warn', 'as-needed'],
-  camelcase: ['warn', { properties: 'never' }],
-  complexity: ['warn', 4],
   'comma-dangle': [
     'error',
     {
@@ -206,11 +174,10 @@ const baseRules = {
     },
   ],
   'constructor-super': 'warn',
-  curly: ['warn', 'multi-line'],
   'default-case': ['warn', { commentPattern: '^no default$' }],
   'eol-last': 'error',
-  eqeqeq: ['warn', 'allow-null'],
   'guard-for-in': 'warn',
+  'linebreak-style': ['error', 'unix'],
   'max-classes-per-file': ['warn', 4],
   'max-depth': ['warn', 4],
   'max-lines': ['warn', 400],
@@ -218,7 +185,7 @@ const baseRules = {
     'warn',
     { max: 40, skipBlankLines: true, skipComments: true, IIFEs: true },
   ],
-  'max-nested-callbacks': ['warn', 2],
+  'max-nested-callbacks': ['warn', 4],
   'max-params': ['warn', 4],
   'max-statements': ['warn', 10],
   'new-cap': ['error', { newIsCap: true, capIsNew: false }],
@@ -305,10 +272,7 @@ const baseRules = {
   'no-unsafe-negation': 'warn',
   'no-unused-expressions': [
     'warn',
-    {
-      allowTernary: true,
-      allowShortCircuit: true,
-    },
+    { allowTernary: true, allowShortCircuit: true },
   ],
   'no-unused-labels': 'warn',
   'no-unused-vars': [
@@ -329,11 +293,7 @@ const baseRules = {
   'no-useless-escape': 'warn',
   'no-useless-rename': [
     'warn',
-    {
-      ignoreDestructuring: false,
-      ignoreImport: false,
-      ignoreExport: false,
-    },
+    { ignoreDestructuring: false, ignoreImport: false, ignoreExport: false },
   ],
   'no-var': 'warn',
   'no-whitespace-before-property': 'warn',
@@ -341,25 +301,23 @@ const baseRules = {
   'operator-assignment': ['warn', 'always'],
   'prefer-const': 'warn',
   'quote-props': ['warn', 'as-needed', { numbers: true }],
-  radix: 'warn',
   'require-yield': 'warn',
-  strict: ['warn', 'never'],
   'unicode-bom': ['error', 'never'],
-  'use-isnan': 'warn',
-  'valid-typeof': 'warn',
-  'wrap-iife': ['warn', 'any'],
-  yoda: ['warn', 'never'],
-  'unicorn/filename-case': [
-    'error',
-    {
-      case: 'kebabCase',
-    },
-  ],
+  'unicorn/filename-case': ['error', { case: 'kebabCase' }],
   'unicorn/no-array-instanceof': 'warn',
   'unicorn/no-new-buffer': 'warn',
   'unicorn/prefer-starts-ends-with': 'warn',
   'unicorn/prefer-type-error': 'warn',
-  'linebreak-style': ['error', 'unix'],
+  'use-isnan': 'warn',
+  'valid-typeof': 'warn',
+  'wrap-iife': ['warn', 'any'],
+  camelcase: ['warn', { properties: 'never' }],
+  complexity: ['warn', 4],
+  curly: ['warn', 'multi-line'],
+  eqeqeq: ['warn', 'allow-null'],
+  radix: 'warn',
+  strict: ['warn', 'never'],
+  yoda: ['warn', 'never'],
 }
 
 const rules = Object.assign(
