@@ -91,6 +91,7 @@ const styleRules = {
   'dot-location': ['warn', 'property'],
   'func-call-spacing': ['warn', 'never'],
   'generator-star-spacing': ['warn', { before: true, after: true }],
+  indent: ['error', 2, { SwitchCase: 1 }],
   'jsx-quotes': ['warn', 'prefer-double'],
   'key-spacing': ['warn', { beforeColon: false, afterColon: true }],
   'keyword-spacing': ['warn', { before: true, after: true }],
@@ -112,7 +113,9 @@ const styleRules = {
     { overrides: { '?': 'before', ':': 'before' } },
   ],
   'padded-blocks': ['warn', 'never'],
+  quotes: ['error', 'single', { avoidEscape: true }],
   'rest-spread-spacing': ['warn', 'never'],
+  semi: ['warn', 'never'],
   'semi-spacing': ['warn', { before: false, after: true }],
   'space-before-blocks': ['warn', 'always'],
   'space-before-function-paren': ['warn', 'always'],
@@ -133,9 +136,6 @@ const styleRules = {
   ],
   'template-curly-spacing': ['warn', 'never'],
   'yield-star-spacing': ['warn', 'both'],
-  indent: ['error', 2, { SwitchCase: 1 }],
-  quotes: ['error', 'single', { avoidEscape: true }],
-  semi: ['warn', 'never'],
 }
 
 const prettierRules = {
@@ -163,6 +163,7 @@ const flowRules = {
 const baseRules = {
   'array-callback-return': 'warn',
   'arrow-body-style': ['warn', 'as-needed'],
+  camelcase: ['warn', { properties: 'never' }],
   'comma-dangle': [
     'error',
     {
@@ -173,9 +174,12 @@ const baseRules = {
       functions: 'never',
     },
   ],
+  complexity: ['warn', 4],
   'constructor-super': 'warn',
+  curly: ['warn', 'multi-line'],
   'default-case': ['warn', { commentPattern: '^no default$' }],
   'eol-last': 'error',
+  eqeqeq: ['warn', 'allow-null'],
   'guard-for-in': 'warn',
   'linebreak-style': ['error', 'unix'],
   'max-classes-per-file': ['warn', 4],
@@ -183,7 +187,7 @@ const baseRules = {
   'max-lines': ['warn', 400],
   'max-lines-per-function': [
     'warn',
-    { max: 40, skipBlankLines: true, skipComments: true, IIFEs: true },
+    { max: 100, skipBlankLines: true, skipComments: true, IIFEs: true },
   ],
   'max-nested-callbacks': ['warn', 4],
   'max-params': ['warn', 4],
@@ -301,7 +305,9 @@ const baseRules = {
   'operator-assignment': ['warn', 'always'],
   'prefer-const': 'warn',
   'quote-props': ['warn', 'as-needed', { numbers: true }],
+  radix: 'warn',
   'require-yield': 'warn',
+  strict: ['warn', 'never'],
   'unicode-bom': ['error', 'never'],
   'unicorn/filename-case': ['error', { case: 'kebabCase' }],
   'unicorn/no-array-instanceof': 'warn',
@@ -311,12 +317,6 @@ const baseRules = {
   'use-isnan': 'warn',
   'valid-typeof': 'warn',
   'wrap-iife': ['warn', 'any'],
-  camelcase: ['warn', { properties: 'never' }],
-  complexity: ['warn', 4],
-  curly: ['warn', 'multi-line'],
-  eqeqeq: ['warn', 'allow-null'],
-  radix: 'warn',
-  strict: ['warn', 'never'],
   yoda: ['warn', 'never'],
 }
 
