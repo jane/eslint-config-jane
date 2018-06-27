@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 const { isInstalled, keep } = require('./helpers')
 const prettierFormat = require('./prettier')
 
@@ -193,6 +194,7 @@ const baseRules = {
   'array-callback-return': 'warn',
   'arrow-body-style': ['warn', 'as-needed'],
   camelcase: ['warn', { properties: 'never' }],
+  complexity: ['warn', 4],
   'comma-dangle': [
     'error',
     {
@@ -209,6 +211,16 @@ const baseRules = {
   'eol-last': 'error',
   eqeqeq: ['warn', 'allow-null'],
   'guard-for-in': 'warn',
+  'max-classes-per-file': ['warn', 4],
+  'max-depth': ['warn', 4],
+  'max-lines': ['warn', 400],
+  'max-lines-per-function': [
+    'warn',
+    { max: 40, skipBlankLines: true, skipComments: true, IIFEs: true },
+  ],
+  'max-nested-callbacks': ['warn', 2],
+  'max-params': ['warn', 4],
+  'max-statements': ['warn', 10],
   'new-cap': ['error', { newIsCap: true, capIsNew: false }],
   'new-parens': 'warn',
   'no-array-constructor': 'warn',
@@ -327,7 +339,7 @@ const baseRules = {
   'no-whitespace-before-property': 'warn',
   'no-with': 'error',
   'operator-assignment': ['warn', 'always'],
-  'prefer-const': ['warn'],
+  'prefer-const': 'warn',
   'quote-props': ['warn', 'as-needed', { numbers: true }],
   radix: 'warn',
   'require-yield': 'warn',
