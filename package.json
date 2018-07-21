@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-jane",
-  "description": "Jane's Eslint config.",
+  "description": "Deprecated: use eslint-plugin-jane.",
   "version": "2.4.4",
   "author": "Zac Anger <zac@zacanger.com> (http://zacanger.com)",
   "contributors": [

@@ -1,5 +1,9 @@
 # eslint-config-jane
 
+## Deprecated
+
+Use [eslint-plugin-jane](http://npm.im/eslint-plugin-jane).
+
 Shared eslint config for front-end projects at [Jane](https://jane.com).
 
 --------
